@@ -15,6 +15,8 @@
 		893A298D2006126C0088BBAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A298C2006126C0088BBAE /* main.m */; };
 		893A29972006126C0088BBAE /* XLLinkageViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A29962006126C0088BBAE /* XLLinkageViewDemoTests.m */; };
 		893A29A22006126C0088BBAE /* XLLinkageViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A29A12006126C0088BBAE /* XLLinkageViewDemoUITests.m */; };
+		893A29B2200613080088BBAE /* XLLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A29B1200613080088BBAE /* XLLinkageView.m */; };
+		893A29B5200614F10088BBAE /* XLLinkageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A29B4200614F10088BBAE /* XLLinkageTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		893A299D2006126C0088BBAE /* XLLinkageViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XLLinkageViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		893A29A12006126C0088BBAE /* XLLinkageViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLLinkageViewDemoUITests.m; sourceTree = "<group>"; };
 		893A29A32006126C0088BBAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		893A29B0200613080088BBAE /* XLLinkageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLLinkageView.h; sourceTree = "<group>"; };
+		893A29B1200613080088BBAE /* XLLinkageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLLinkageView.m; sourceTree = "<group>"; };
+		893A29B3200614F10088BBAE /* XLLinkageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLLinkageTableViewCell.h; sourceTree = "<group>"; };
+		893A29B4200614F10088BBAE /* XLLinkageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLLinkageTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,10 @@
 		893A29AF2006128B0088BBAE /* XLLinkageView */ = {
 			isa = PBXGroup;
 			children = (
+				893A29B0200613080088BBAE /* XLLinkageView.h */,
+				893A29B1200613080088BBAE /* XLLinkageView.m */,
+				893A29B3200614F10088BBAE /* XLLinkageTableViewCell.h */,
+				893A29B4200614F10088BBAE /* XLLinkageTableViewCell.m */,
 			);
 			path = XLLinkageView;
 			sourceTree = "<group>";
@@ -273,8 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893A29B2200613080088BBAE /* XLLinkageView.m in Sources */,
 				893A29822006126C0088BBAE /* ViewController.m in Sources */,
 				893A298D2006126C0088BBAE /* main.m in Sources */,
+				893A29B5200614F10088BBAE /* XLLinkageTableViewCell.m in Sources */,
 				893A297F2006126C0088BBAE /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4C8X2DPEAL;
 				INFOPLIST_FILE = XLLinkageViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lu.XLLinkageViewDemo;
@@ -452,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4C8X2DPEAL;
 				INFOPLIST_FILE = XLLinkageViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lu.XLLinkageViewDemo;
