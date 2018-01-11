@@ -17,6 +17,8 @@
 		893A29A22006126C0088BBAE /* XLLinkageViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A29A12006126C0088BBAE /* XLLinkageViewDemoUITests.m */; };
 		893A29B2200613080088BBAE /* XLLinkageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A29B1200613080088BBAE /* XLLinkageView.m */; };
 		893A29B5200614F10088BBAE /* XLLinkageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893A29B4200614F10088BBAE /* XLLinkageTableViewCell.m */; };
+		8944F0C12006F0F7008D2F3D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8944F0C02006F0F7008D2F3D /* FirstViewController.m */; };
+		8944F0C42007079D008D2F3D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8944F0C32007079D008D2F3D /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		893A29B1200613080088BBAE /* XLLinkageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLLinkageView.m; sourceTree = "<group>"; };
 		893A29B3200614F10088BBAE /* XLLinkageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XLLinkageTableViewCell.h; sourceTree = "<group>"; };
 		893A29B4200614F10088BBAE /* XLLinkageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XLLinkageTableViewCell.m; sourceTree = "<group>"; };
+		8944F0BF2006F0F7008D2F3D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		8944F0C02006F0F7008D2F3D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		8944F0C22007079D008D2F3D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		8944F0C32007079D008D2F3D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,10 @@
 				893A297E2006126C0088BBAE /* AppDelegate.m */,
 				893A29802006126C0088BBAE /* ViewController.h */,
 				893A29812006126C0088BBAE /* ViewController.m */,
+				8944F0BF2006F0F7008D2F3D /* FirstViewController.h */,
+				8944F0C02006F0F7008D2F3D /* FirstViewController.m */,
+				8944F0C22007079D008D2F3D /* SecondViewController.h */,
+				8944F0C32007079D008D2F3D /* SecondViewController.m */,
 				893A29832006126C0088BBAE /* Main.storyboard */,
 				893A29862006126C0088BBAE /* Assets.xcassets */,
 				893A29882006126C0088BBAE /* LaunchScreen.storyboard */,
@@ -284,7 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				893A29B2200613080088BBAE /* XLLinkageView.m in Sources */,
+				8944F0C12006F0F7008D2F3D /* FirstViewController.m in Sources */,
 				893A29822006126C0088BBAE /* ViewController.m in Sources */,
+				8944F0C42007079D008D2F3D /* SecondViewController.m in Sources */,
 				893A298D2006126C0088BBAE /* main.m in Sources */,
 				893A29B5200614F10088BBAE /* XLLinkageTableViewCell.m in Sources */,
 				893A297F2006126C0088BBAE /* AppDelegate.m in Sources */,
@@ -453,6 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4C8X2DPEAL;
 				INFOPLIST_FILE = XLLinkageViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lu.XLLinkageViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -467,6 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4C8X2DPEAL;
 				INFOPLIST_FILE = XLLinkageViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lu.XLLinkageViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

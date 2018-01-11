@@ -10,15 +10,29 @@
 
 @implementation XLLinkageTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(99.4, 0, .6, 44)];
+        NSLog(@"\nW:%f \nH:%f",self.frame.size.width, self.frame.size.height);
+        lineView.backgroundColor = [UIColor colorWithRed:222/255.0 green:222/255.0 blue:222/255.0 alpha:1];
+        [self.contentView addSubview:lineView];
+    }
+    return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    if (self.selected) {
+        UIView *selectedBackgroundView = [[UIView alloc]initWithFrame:self.contentView.frame];
+        selectedBackgroundView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+        self.textLabel.textColor = [UIColor redColor];
+        [self setSelectedBackgroundView:selectedBackgroundView];
+    }else{
+        self.textLabel.textColor = [UIColor blackColor];
+    }
 }
 
 @end

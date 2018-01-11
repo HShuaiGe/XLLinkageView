@@ -17,6 +17,8 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) UIViewController *parentVC;
 @property (nonatomic, strong) NSArray<UIViewController *> *childVCs;
+@property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) UIView *lineView;
 @end
 
 @implementation XLLinkageView
@@ -38,10 +40,10 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
 
 
 
--(void)setChildVCs:(NSArray<UIViewController *> *)childVCs parentVC:(UIViewController *)parentVC defaultItem:(NSInteger)defaultItem{
+-(void)setChildVCs:(NSArray<UIViewController *> *)childVCs titles:(NSArray *)titles parentVC:(UIViewController *)parentVC defaultItem:(NSInteger)defaultItem;{
     _parentVC = parentVC;
     _childVCs = childVCs;
-    [self layoutSubviews];
+    _titles = titles;
     for (UIViewController *vc in _childVCs) {
         [_parentVC addChildViewController:vc];
     }
@@ -49,14 +51,17 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
     [self.collectionView reloadData];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:defaultItem inSection:0];
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+//    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
     _tableView.frame = CGRectMake(0, 0, 100, self.frame.size.height);
-    _flowLayout.itemSize = CGSizeMake(self.frame.size.width - 100, self.frame.size.height);
-    _collectionView.frame = CGRectMake(self.tableView.frame.size.width, 0, self.frame.size.width - self.tableView.frame.size.width, self.frame.size.height);
+    _flowLayout.itemSize = CGSizeMake(self.frame.size.width - 100 - 5, self.frame.size.height);
+    _collectionView.frame = CGRectMake(self.tableView.frame.size.width + 5, 0, self.frame.size.width - self.tableView.frame.size.width - 5, self.frame.size.height);
+    _lineView.frame = CGRectMake(self.tableView.frame.size.width, 0, .8, self.frame.size.height);
 }
 
 -(void)addTableView{
@@ -65,7 +70,11 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
     [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:222/255.0 green:222/255.0 blue:222/255.0 alpha:1]];
+    _lineView = [[UIView alloc]init];
+    _lineView.backgroundColor = [UIColor colorWithRed:222/255.0 green:222/255.0 blue:222/255.0 alpha:1];
     [self addSubview:_tableView];
+//    [self addSubview:_lineView];
 }
 
 
@@ -87,13 +96,16 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
     XLLinkageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LinkageTableViewCell];
     if (!cell) {
         cell = [[XLLinkageTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LinkageTableViewCell];
-        cell.detailTextLabel.text = @"测试";
     }
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    cell.textLabel.text = _titles[indexPath.row];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 

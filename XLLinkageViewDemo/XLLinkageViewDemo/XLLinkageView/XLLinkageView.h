@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface XLLinkageView : UIView
--(void)setChildVCs:(NSArray<UIViewController *> *)childVCs parentVC:(UIViewController *)parentVC defaultItem:(NSInteger)defaultItem;
+-(void)setChildVCs:(NSArray<UIViewController *> *)childVCs titles:(NSArray *)titles parentVC:(UIViewController *)parentVC defaultItem:(NSInteger)defaultItem;
 @end
