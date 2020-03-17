@@ -51,7 +51,6 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
     [self.collectionView reloadData];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:defaultItem inSection:0];
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-//    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
     [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
 
 }
@@ -74,7 +73,6 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
     _lineView = [[UIView alloc]init];
     _lineView.backgroundColor = [UIColor colorWithRed:222/255.0 green:222/255.0 blue:222/255.0 alpha:1];
     [self addSubview:_tableView];
-//    [self addSubview:_lineView];
 }
 
 
@@ -116,13 +114,12 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
 -(void)addContentView{
     _flowLayout = [[UICollectionViewFlowLayout alloc] init];
     _flowLayout.minimumLineSpacing = 0;
-    _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
     _collectionView.backgroundColor = [UIColor whiteColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.pagingEnabled = YES;
-    _collectionView.scrollEnabled = NO;
     _collectionView.showsVerticalScrollIndicator = NO;
     _collectionView.showsHorizontalScrollIndicator = NO;
     [self addSubview:_collectionView];
@@ -148,5 +145,13 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
     return cell;
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 
+    if (scrollView == self.collectionView)
+    {
+        CGFloat pageHeight = scrollView.frame.size.height;
+        NSInteger page = scrollView.contentOffset.y / pageHeight;
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:page inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    }
+}
 @end

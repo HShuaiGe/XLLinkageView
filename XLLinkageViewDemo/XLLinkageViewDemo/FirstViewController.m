@@ -17,16 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-//放在此处操作你需要请求的数据和UI
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+    
+    int R = (arc4random() % 256) ;
+    int G = (arc4random() % 256) ;
+    int B = (arc4random() % 256) ;
+    [self.view setBackgroundColor:[UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1]];
     self.activityIndicatorView.hidden = NO;
     [self.activityIndicatorView startAnimating];
     NSLog(@"1");
-    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0/*延迟执行时间*/ * NSEC_PER_SEC));
-    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.activityIndicatorView isAnimating];
         self.activityIndicatorView.hidden = YES;
     });
