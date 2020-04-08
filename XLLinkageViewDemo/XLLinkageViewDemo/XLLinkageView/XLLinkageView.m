@@ -12,10 +12,11 @@
 static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
 
 @interface XLLinkageView()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
+
+@property (nonatomic, weak) UIViewController *parentVC;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
-@property (nonatomic, strong) UIViewController *parentVC;
 @property (nonatomic, strong) NSArray<UIViewController *> *childVCs;
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) UIView *lineView;
@@ -153,5 +154,12 @@ static NSString *LinkageTableViewCell = @"LinkageTableViewCell";
         NSInteger page = scrollView.contentOffset.y / pageHeight;
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:page inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
+}
+
+
+
+- (void)dealloc
+{
+    NSLog(@"%s", __func__);
 }
 @end
